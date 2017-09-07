@@ -1,12 +1,13 @@
 class Api::V1::UsersController < ApplicationController
   before_action :authorized, only: [:me]
+  
   def index
     @users = User.all
     render json: @users
   end
 
   def create
-    @user = User.new(username: params[:username], password:params[:password])
+    @user = User.new(username: params[:username], email: params[:email], password:params[:password])
     if @user.save
       payload = { user_id: @user.id}
       render json: {user: @user, jwt: issue_token(payload)}

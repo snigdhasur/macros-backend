@@ -97,3 +97,48 @@ Processing by Api::V1::AuthController#create as */*
 Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms)
 
 
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-07 16:27:58 -0400
+Processing by Api::V1::AuthController#create as */*
+  Parameters: {"userame"=>"macrouser", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-07 16:46:03 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"test", "password"=>"[FILTERED]", "auth"=>{"username"=>"test", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+Completed 200 OK in 44ms (Views: 1.8ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2017-09-07 17:21:36 -0400
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"username"=>"test", "password"=>"[FILTERED]", "user"=>{"username"=>"test"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "test"], ["password_digest", "$2a$10$KFLEQMkGhKNDRw8hZVZL8umr9WlxB5qrPiftDh0WwEERPludO4IDC"], ["created_at", "2017-09-07 21:21:36.673156"], ["updated_at", "2017-09-07 21:21:36.673156"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 179ms (ActiveRecord: 26.2ms)
+
+
+  
+NoMethodError (undefined method `issue_token' for #<Api::V1::UsersController:0x007fbd6e8afcb8>):
+  
+app/controllers/api/v1/users_controller.rb:13:in `create'
+Started POST "/api/v1/users" for 127.0.0.1 at 2017-09-07 17:23:38 -0400
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"username"=>"test", "password"=>"[FILTERED]", "user"=>{"username"=>"test"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "test"], ["password_digest", "$2a$10$PngNI.sl4jZXaxLrU5IB7uP36epev9ux1o/zuaisbtgsRBUIqZaOu"], ["created_at", "2017-09-07 21:23:38.741651"], ["updated_at", "2017-09-07 21:23:38.741651"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 97ms (Views: 1.2ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2017-09-07 17:29:23 -0400
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"username"=>"snigdha", "email"=>"sur.snigdha@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"snigdha", "email"=>"sur.snigdha@gmail.com"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "snigdha"], ["email", "sur.snigdha@gmail.com"], ["password_digest", "$2a$10$VoP8FHfbeJGpkOtgBiIwne87prk0H.yEFhOm4fRy1BOT7McmP4sla"], ["created_at", "2017-09-07 21:29:23.757005"], ["updated_at", "2017-09-07 21:29:23.757005"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 102ms (Views: 0.6ms | ActiveRecord: 1.4ms)
+
+
