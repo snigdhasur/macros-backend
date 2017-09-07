@@ -142,3 +142,17 @@ Processing by Api::V1::UsersController#create as JSON
 Completed 200 OK in 102ms (Views: 0.6ms | ActiveRecord: 1.4ms)
 
 
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-07 17:44:13 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"test", "password"=>"[FILTERED]", "auth"=>{"username"=>"test", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (12.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+Completed 200 OK in 118ms (Views: 0.7ms | ActiveRecord: 12.2ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-07 17:56:14 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
