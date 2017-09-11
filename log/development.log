@@ -769,3 +769,61 @@ Processing by Api::V1::AuthController#create as JSON
 Completed 200 OK in 126ms (Views: 9.7ms | ActiveRecord: 5.5ms)
 
 
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-09 02:03:35 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 146ms (Views: 7.7ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-09 02:06:02 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 139ms (Views: 12.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-09 02:06:57 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 114ms (Views: 7.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-09 02:07:58 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 98ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-09 02:09:03 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 116ms (Views: 8.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-09 11:01:49 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 118ms (Views: 3.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-10 08:28:29 -0400
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (18.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 142ms (Views: 1.0ms | ActiveRecord: 27.5ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-11 11:47:28 -0400
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (18.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 152ms (Views: 0.9ms | ActiveRecord: 27.6ms)
+
+
