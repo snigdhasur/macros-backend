@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   		resources :meals
   		post '/login', to: 'auth#create'
   		get '/me', to: 'users#me'
+  		get '/me/meals', to: 'meals#my_meals'
   	end
   end
 end

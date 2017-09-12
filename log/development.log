@@ -1172,3 +1172,655 @@ Processing by Api::V1::MealsController#create as JSON
 Completed 200 OK in 14ms (Views: 3.2ms | ActiveRecord: 2.8ms)
 
 
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 13:43:03 -0400
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (13.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 152ms (Views: 0.8ms | ActiveRecord: 25.5ms)
+
+
+Started POST "/api/v1/meals" for 127.0.0.1 at 2017-09-12 13:44:05 -0400
+Processing by Api::V1::MealsController#create as JSON
+  Parameters: {"meal"=>{"name"=>"soup", "category"=>"lunch", "user_id"=>3, "date_string"=>"2017-09-12", "date_date"=>"2017-09-12T17:44:05.914Z", "image_url"=>"http://thenourishinghome.com/wp-content/uploads/2012/10/Tomato-Soup2.jpg", "total_cal"=>100, "total_protein"=>7.28, "total_fat"=>2.38, "total_carbs"=>14.41}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (7.1ms)[0m  [1m[32mINSERT INTO "meals" ("name", "date_string", "date_date", "image_url", "total_cal", "total_protein", "total_fat", "total_carbs", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "soup"], ["date_string", "2017-09-12"], ["date_date", "2017-09-12 17:44:05.914000"], ["image_url", "http://thenourishinghome.com/wp-content/uploads/2012/10/Tomato-Soup2.jpg"], ["total_cal", 100.0], ["total_protein", 7.28], ["total_fat", 2.38], ["total_carbs", 14.41], ["category", "lunch"], ["user_id", 3], ["created_at", "2017-09-12 17:44:06.083313"], ["updated_at", "2017-09-12 17:44:06.083313"]]
+  [1m[35m (12.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMeal Load (6.9ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 174ms (Views: 7.9ms | ActiveRecord: 63.4ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 13:44:31 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 103ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/meals" for 127.0.0.1 at 2017-09-12 13:44:52 -0400
+Processing by Api::V1::MealsController#create as JSON
+  Parameters: {"meal"=>{"name"=>"tomato soup", "category"=>"lunch", "user_id"=>3, "date_string"=>"2017-09-12", "date_date"=>"2017-09-12T17:44:52.777Z", "image_url"=>"http://thenourishinghome.com/wp-content/uploads/2012/10/Tomato-Soup2.jpg", "total_cal"=>86, "total_protein"=>2.32, "total_fat"=>2.07, "total_carbs"=>14.21}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "meals" ("name", "date_string", "date_date", "image_url", "total_cal", "total_protein", "total_fat", "total_carbs", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "tomato soup"], ["date_string", "2017-09-12"], ["date_date", "2017-09-12 17:44:52.777000"], ["image_url", "http://thenourishinghome.com/wp-content/uploads/2012/10/Tomato-Soup2.jpg"], ["total_cal", 86.0], ["total_protein", 2.32], ["total_fat", 2.07], ["total_carbs", 14.21], ["category", "lunch"], ["user_id", 3], ["created_at", "2017-09-12 17:44:52.830658"], ["updated_at", "2017-09-12 17:44:52.830658"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMeal Load (0.6ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 19ms (Views: 6.2ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 13:48:24 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 100ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/meals" for 127.0.0.1 at 2017-09-12 13:49:25 -0400
+Processing by Api::V1::MealsController#create as JSON
+  Parameters: {"meal"=>{"name"=>"hamburger", "category"=>"lunch", "user_id"=>3, "date_string"=>"2017-09-12", "date_date"=>"2017-09-12T17:49:25.242Z", "image_url"=>"http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-40.jpg", "total_cal"=>744, "total_protein"=>18.560000000000002, "total_fat"=>25.520000000000003, "total_carbs"=>115.35}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "meals" ("name", "date_string", "date_date", "image_url", "total_cal", "total_protein", "total_fat", "total_carbs", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "hamburger"], ["date_string", "2017-09-12"], ["date_date", "2017-09-12 17:49:25.242000"], ["image_url", "http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-40.jpg"], ["total_cal", 744.0], ["total_protein", 18.560000000000002], ["total_fat", 25.520000000000003], ["total_carbs", 115.35], ["category", "lunch"], ["user_id", 3], ["created_at", "2017-09-12 17:49:25.294897"], ["updated_at", "2017-09-12 17:49:25.294897"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMeal Load (0.5ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 21ms (Views: 8.0ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 13:49:45 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 96ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 14:42:30 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 93ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 14:43:35 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 108ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/meals" for 127.0.0.1 at 2017-09-12 14:45:30 -0400
+Processing by Api::V1::MealsController#create as JSON
+  Parameters: {"meal"=>{"name"=>"\"\"", "category"=>"breakfast", "user_id"=>3, "date_string"=>"2015-11-17", "date_date"=>"2017-09-12T18:45:30.608Z", "image_url"=>"http://www.goodpaper.com/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/2/1/21-010.jpg", "total_cal"=>60, "total_protein"=>0, "total_fat"=>0, "total_carbs"=>10.2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "meals" ("name", "date_string", "date_date", "image_url", "total_cal", "total_protein", "total_fat", "total_carbs", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "\"\""], ["date_string", "2015-11-17"], ["date_date", "2017-09-12 18:45:30.608000"], ["image_url", "http://www.goodpaper.com/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/2/1/21-010.jpg"], ["total_cal", 60.0], ["total_protein", 0.0], ["total_fat", 0.0], ["total_carbs", 10.2], ["category", "breakfast"], ["user_id", 3], ["created_at", "2017-09-12 18:45:30.657717"], ["updated_at", "2017-09-12 18:45:30.657717"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMeal Load (0.4ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 15ms (Views: 5.4ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 14:47:47 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 99ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 15:07:22 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 105ms (Views: 2.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/v1/meals" for 127.0.0.1 at 2017-09-12 15:08:40 -0400
+Processing by Api::V1::MealsController#create as JSON
+  Parameters: {"meal"=>{"name"=>"orange", "category"=>"dinner", "user_id"=>3, "date_string"=>"2017-09-12", "date_date"=>"2017-09-12T19:08:40.610Z", "image_url"=>"http://globe-views.com/dcim/dreams/orange/orange-04.jpg", "total_cal"=>32, "total_protein"=>0, "total_fat"=>0, "total_carbs"=>7.42}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "meals" ("name", "date_string", "date_date", "image_url", "total_cal", "total_protein", "total_fat", "total_carbs", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "orange"], ["date_string", "2017-09-12"], ["date_date", "2017-09-12 19:08:40.610000"], ["image_url", "http://globe-views.com/dcim/dreams/orange/orange-04.jpg"], ["total_cal", 32.0], ["total_protein", 0.0], ["total_fat", 0.0], ["total_carbs", 7.42], ["category", "dinner"], ["user_id", 3], ["created_at", "2017-09-12 19:08:40.669262"], ["updated_at", "2017-09-12 19:08:40.669262"]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMeal Load (0.7ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 37ms (Views: 13.6ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 15:14:24 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 97ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 15:17:09 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 91ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 15:30:04 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 99ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 15:31:36 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 101ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 15:31:58 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 103ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 15:33:02 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 100ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 15:33:45 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 98ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 15:37:11 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 102ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 15:37:38 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 85ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 15:37:42 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 101ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 15:50:33 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/meals" for 127.0.0.1 at 2017-09-12 15:51:38 -0400
+Processing by Api::V1::MealsController#create as JSON
+  Parameters: {"meal"=>{"name"=>"boba", "category"=>"snack", "user_id"=>3, "date_string"=>"2017-09-12", "date_date"=>"2017-09-12T19:51:38.910Z", "image_url"=>"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Bubble_Tea.png/150px-Bubble_Tea.png", "total_cal"=>66, "total_protein"=>2.84, "total_fat"=>2.04, "total_carbs"=>9.02}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "meals" ("name", "date_string", "date_date", "image_url", "total_cal", "total_protein", "total_fat", "total_carbs", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "boba"], ["date_string", "2017-09-12"], ["date_date", "2017-09-12 19:51:38.910000"], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Bubble_Tea.png/150px-Bubble_Tea.png"], ["total_cal", 66.0], ["total_protein", 2.84], ["total_fat", 2.04], ["total_carbs", 9.02], ["category", "snack"], ["user_id", 3], ["created_at", "2017-09-12 19:51:38.958262"], ["updated_at", "2017-09-12 19:51:38.958262"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMeal Load (0.4ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 39ms (Views: 23.5ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 16:04:31 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/meals" for 127.0.0.1 at 2017-09-12 16:05:51 -0400
+Processing by Api::V1::MealsController#create as JSON
+  Parameters: {"meal"=>{"name"=>"toros meal", "category"=>"dinner", "user_id"=>3, "date_string"=>"2017-09-12", "date_date"=>"2017-09-12T20:05:51.871Z", "image_url"=>"http://feedthelion.co.uk/wp-content/uploads/2016/02/toros-surf-n-turf.jpg", "total_cal"=>472, "total_protein"=>53, "total_fat"=>19.919999999999998, "total_carbs"=>21.869999999999997}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "meals" ("name", "date_string", "date_date", "image_url", "total_cal", "total_protein", "total_fat", "total_carbs", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "toros meal"], ["date_string", "2017-09-12"], ["date_date", "2017-09-12 20:05:51.871000"], ["image_url", "http://feedthelion.co.uk/wp-content/uploads/2016/02/toros-surf-n-turf.jpg"], ["total_cal", 472.0], ["total_protein", 53.0], ["total_fat", 19.919999999999998], ["total_carbs", 21.869999999999997], ["category", "dinner"], ["user_id", 3], ["created_at", "2017-09-12 20:05:51.912787"], ["updated_at", "2017-09-12 20:05:51.912787"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMeal Load (0.4ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 14ms (Views: 6.1ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 16:14:08 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 97ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 16:14:15 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 94ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 16:14:31 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 101ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 16:15:01 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 110ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 16:18:43 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 105ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/meals" for 127.0.0.1 at 2017-09-12 16:19:33 -0400
+Processing by Api::V1::MealsController#create as JSON
+  Parameters: {"meal"=>{"name"=>"pizza", "category"=>"lunch", "user_id"=>3, "date_string"=>"2017-09-12", "date_date"=>"2017-09-12T20:19:33.161Z", "image_url"=>"https://www.papaginos.com/assets/images/error-sadPizza.jpg", "total_cal"=>702, "total_protein"=>41.92, "total_fat"=>26.299999999999997, "total_carbs"=>74.06}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "meals" ("name", "date_string", "date_date", "image_url", "total_cal", "total_protein", "total_fat", "total_carbs", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "pizza"], ["date_string", "2017-09-12"], ["date_date", "2017-09-12 20:19:33.161000"], ["image_url", "https://www.papaginos.com/assets/images/error-sadPizza.jpg"], ["total_cal", 702.0], ["total_protein", 41.92], ["total_fat", 26.299999999999997], ["total_carbs", 74.06], ["category", "lunch"], ["user_id", 3], ["created_at", "2017-09-12 20:19:33.208545"], ["updated_at", "2017-09-12 20:19:33.208545"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMeal Load (0.3ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 20ms (Views: 9.7ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 16:21:54 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 103ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/meals" for 127.0.0.1 at 2017-09-12 16:22:18 -0400
+Processing by Api::V1::MealsController#create as JSON
+  Parameters: {"meal"=>{"name"=>"pb&j", "category"=>"snack", "user_id"=>3, "date_string"=>"2017-09-12", "date_date"=>"2017-09-12T20:22:18.876Z", "image_url"=>"https://cdn.modpizza.com/wp-content/uploads/2016/11/mod-pizza-maddy-default-e1479167621575.png", "total_cal"=>916, "total_protein"=>44.22, "total_fat"=>38.32, "total_carbs"=>97.94}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "meals" ("name", "date_string", "date_date", "image_url", "total_cal", "total_protein", "total_fat", "total_carbs", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "pb&j"], ["date_string", "2017-09-12"], ["date_date", "2017-09-12 20:22:18.876000"], ["image_url", "https://cdn.modpizza.com/wp-content/uploads/2016/11/mod-pizza-maddy-default-e1479167621575.png"], ["total_cal", 916.0], ["total_protein", 44.22], ["total_fat", 38.32], ["total_carbs", 97.94], ["category", "snack"], ["user_id", 3], ["created_at", "2017-09-12 20:22:18.928923"], ["updated_at", "2017-09-12 20:22:18.928923"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMeal Load (0.3ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 23ms (Views: 10.3ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 16:31:35 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 99ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 16:45:30 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 104ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 16:45:49 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 97ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/meals" for 127.0.0.1 at 2017-09-12 16:46:26 -0400
+Processing by Api::V1::MealsController#create as JSON
+  Parameters: {"meal"=>{"name"=>"pizza two", "category"=>"dinner", "user_id"=>3, "date_string"=>"2017-09-12", "date_date"=>"2017-09-12T20:46:26.363Z", "image_url"=>"https://cdn.modpizza.com/wp-content/uploads/2016/11/mod-pizza-maddy-default-e1479167621575.png", "total_cal"=>549, "total_protein"=>25.79, "total_fat"=>20.93, "total_carbs"=>64.48}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "meals" ("name", "date_string", "date_date", "image_url", "total_cal", "total_protein", "total_fat", "total_carbs", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "pizza two"], ["date_string", "2017-09-12"], ["date_date", "2017-09-12 20:46:26.363000"], ["image_url", "https://cdn.modpizza.com/wp-content/uploads/2016/11/mod-pizza-maddy-default-e1479167621575.png"], ["total_cal", 549.0], ["total_protein", 25.79], ["total_fat", 20.93], ["total_carbs", 64.48], ["category", "dinner"], ["user_id", 3], ["created_at", "2017-09-12 20:46:26.417614"], ["updated_at", "2017-09-12 20:46:26.417614"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMeal Load (0.5ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 25ms (Views: 9.2ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 16:48:01 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 97ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 16:51:08 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 100ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:06:01 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 105ms (Views: 2.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:07:50 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 105ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:10:57 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 101ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:12:46 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 93ms (Views: 0.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/v1/meals" for 127.0.0.1 at 2017-09-12 17:13:04 -0400
+Processing by Api::V1::MealsController#create as JSON
+  Parameters: {"meal"=>{"name"=>"pizza", "category"=>"dinner", "user_id"=>3, "date_string"=>"2017-09-12", "date_date"=>"2017-09-12T21:13:04.933Z", "image_url"=>"https://cdn.modpizza.com/wp-content/uploads/2016/11/mod-pizza-maddy-default-e1479167621575.png", "total_cal"=>549, "total_protein"=>25.79, "total_fat"=>20.93, "total_carbs"=>64.48}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "meals" ("name", "date_string", "date_date", "image_url", "total_cal", "total_protein", "total_fat", "total_carbs", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "pizza"], ["date_string", "2017-09-12"], ["date_date", "2017-09-12 21:13:04.933000"], ["image_url", "https://cdn.modpizza.com/wp-content/uploads/2016/11/mod-pizza-maddy-default-e1479167621575.png"], ["total_cal", 549.0], ["total_protein", 25.79], ["total_fat", 20.93], ["total_carbs", 64.48], ["category", "dinner"], ["user_id", 3], ["created_at", "2017-09-12 21:13:05.005344"], ["updated_at", "2017-09-12 21:13:05.005344"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMeal Load (0.6ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 45ms (Views: 13.3ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:14:29 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 108ms (Views: 0.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:15:04 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 96ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/meals" for 127.0.0.1 at 2017-09-12 17:16:20 -0400
+Processing by Api::V1::MealsController#create as JSON
+  Parameters: {"meal"=>{"name"=>"banana", "category"=>"snack", "user_id"=>3, "date_string"=>"2017-09-12", "date_date"=>"2017-09-12T21:16:20.392Z", "image_url"=>"https://australianbananas.com.au/Images/Home/RipenessBlend.png", "total_cal"=>56, "total_protein"=>0, "total_fat"=>0, "total_carbs"=>11.06}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "meals" ("name", "date_string", "date_date", "image_url", "total_cal", "total_protein", "total_fat", "total_carbs", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "banana"], ["date_string", "2017-09-12"], ["date_date", "2017-09-12 21:16:20.392000"], ["image_url", "https://australianbananas.com.au/Images/Home/RipenessBlend.png"], ["total_cal", 56.0], ["total_protein", 0.0], ["total_fat", 0.0], ["total_carbs", 11.06], ["category", "snack"], ["user_id", 3], ["created_at", "2017-09-12 21:16:20.442966"], ["updated_at", "2017-09-12 21:16:20.442966"]]
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMeal Load (0.9ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 38ms (Views: 20.2ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:16:32 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:17:35 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 103ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/meals" for 127.0.0.1 at 2017-09-12 17:18:31 -0400
+Processing by Api::V1::MealsController#create as JSON
+  Parameters: {"meal"=>{"name"=>"banan two", "category"=>"snack", "user_id"=>3, "date_string"=>"2017-09-12", "date_date"=>"2017-09-12T21:18:31.500Z", "image_url"=>"https://australianbananas.com.au/Images/Home/RipenessBlend.png", "total_cal"=>48, "total_protein"=>0, "total_fat"=>0, "total_carbs"=>11.52}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "meals" ("name", "date_string", "date_date", "image_url", "total_cal", "total_protein", "total_fat", "total_carbs", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "banan two"], ["date_string", "2017-09-12"], ["date_date", "2017-09-12 21:18:31.500000"], ["image_url", "https://australianbananas.com.au/Images/Home/RipenessBlend.png"], ["total_cal", 48.0], ["total_protein", 0.0], ["total_fat", 0.0], ["total_carbs", 11.52], ["category", "snack"], ["user_id", 3], ["created_at", "2017-09-12 21:18:31.555370"], ["updated_at", "2017-09-12 21:18:31.555370"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMeal Load (0.7ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 31ms (Views: 18.2ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:19:50 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 112ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:25:00 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 96ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/meals" for 127.0.0.1 at 2017-09-12 17:25:31 -0400
+Processing by Api::V1::MealsController#create as JSON
+  Parameters: {"meal"=>{"name"=>"pizza again", "category"=>"snack", "user_id"=>3, "date_string"=>"2017-09-12", "date_date"=>"2017-09-12T21:25:31.901Z", "image_url"=>"https://australianbananas.com.au/Images/Home/RipenessBlend.png", "total_cal"=>0, "total_protein"=>0, "total_fat"=>0, "total_carbs"=>0}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "meals" ("name", "date_string", "date_date", "image_url", "total_cal", "total_protein", "total_fat", "total_carbs", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "pizza again"], ["date_string", "2017-09-12"], ["date_date", "2017-09-12 21:25:31.901000"], ["image_url", "https://australianbananas.com.au/Images/Home/RipenessBlend.png"], ["total_cal", 0.0], ["total_protein", 0.0], ["total_fat", 0.0], ["total_carbs", 0.0], ["category", "snack"], ["user_id", 3], ["created_at", "2017-09-12 21:25:31.971330"], ["updated_at", "2017-09-12 21:25:31.971330"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMeal Load (0.7ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 27ms (Views: 15.3ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:27:06 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 96ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/me/meals" for 127.0.0.1 at 2017-09-12 17:30:53 -0400
+Processing by Api::V1::MealsController#my_meals as */*
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:30:53 -0400
+  
+Processing by Api::V1::AuthController#create as JSON
+NoMethodError (undefined method `meals' for nil:NilClass):
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  
+app/controllers/api/v1/meals_controller.rb:19:in `my_meals'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 128ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:34:26 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/meals" for 127.0.0.1 at 2017-09-12 17:35:07 -0400
+Processing by Api::V1::MealsController#create as JSON
+  Parameters: {"meal"=>{"name"=>"pizza", "category"=>"lunch", "user_id"=>3, "date_string"=>"2017-09-12", "date_date"=>"2017-09-12T21:35:07.749Z", "image_url"=>"https://australianbananas.com.au/Images/Home/RipenessBlend.png", "total_cal"=>32, "total_protein"=>0, "total_fat"=>0, "total_carbs"=>7.68}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "meals" ("name", "date_string", "date_date", "image_url", "total_cal", "total_protein", "total_fat", "total_carbs", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "pizza"], ["date_string", "2017-09-12"], ["date_date", "2017-09-12 21:35:07.749000"], ["image_url", "https://australianbananas.com.au/Images/Home/RipenessBlend.png"], ["total_cal", 32.0], ["total_protein", 0.0], ["total_fat", 0.0], ["total_carbs", 7.68], ["category", "lunch"], ["user_id", 3], ["created_at", "2017-09-12 21:35:07.828671"], ["updated_at", "2017-09-12 21:35:07.828671"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMeal Load (0.6ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 49ms (Views: 12.8ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:36:37 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 104ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:39:58 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 0.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/v1/me/meals" for 127.0.0.1 at 2017-09-12 17:39:58 -0400
+Processing by Api::V1::MealsController#my_meals as JSON
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `meals' for nil:NilClass):
+  
+app/controllers/api/v1/meals_controller.rb:19:in `my_meals'
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:43:00 -0400
+Processing by Api::V1::AuthController#create as JSON
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+  [1m[36mMeal Load (0.4ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 155ms (Views: 25.7ms | ActiveRecord: 9.7ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:49:01 -0400
+Processing by Api::V1::AuthController#create as JSON
+Started GET "/api/v1/me/meals" for 127.0.0.1 at 2017-09-12 17:49:01 -0400
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+  [1m[36mMeal Load (0.5ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Completed 200 OK in 137ms (Views: 26.1ms | ActiveRecord: 0.8ms)
+
+
+Processing by Api::V1::MealsController#my_meals as JSON
+Redirected to http://localhost:3000/api/v1/login
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:49:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/login"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:49:31 -0400
+Processing by Api::V1::AuthController#create as JSON
+Started GET "/api/v1/me/meals" for 127.0.0.1 at 2017-09-12 17:49:31 -0400
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+Processing by Api::V1::MealsController#my_meals as JSON
+Redirected to http://localhost:3000/api/v1/login
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+Started GET "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:49:32 -0400
+  [1m[36mMeal Load (0.7ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+  
+Completed 200 OK in 146ms (Views: 21.5ms | ActiveRecord: 1.2ms)
+
+
+ActionController::RoutingError (No route matches [GET] "/api/v1/login"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:53:42 -0400
+Processing by Api::V1::AuthController#create as JSON
+Started GET "/api/v1/me/meals" for 127.0.0.1 at 2017-09-12 17:53:42 -0400
+  Parameters: {"username"=>"snigdha", "password"=>"[FILTERED]", "auth"=>{"username"=>"snigdha", "password"=>"[FILTERED]"}}
+Processing by Api::V1::MealsController#my_meals as JSON
+Redirected to http://localhost:3000/api/v1/login
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "snigdha"], ["LIMIT", 1]]
+  [1m[36mMeal Load (0.5ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = $1[0m  [["user_id", 3]]
+Started GET "/api/v1/login" for 127.0.0.1 at 2017-09-12 17:53:42 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/login"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Completed 200 OK in 111ms (Views: 13.2ms | ActiveRecord: 1.0ms)
+
+

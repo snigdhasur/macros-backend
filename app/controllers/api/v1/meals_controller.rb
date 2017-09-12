@@ -1,5 +1,7 @@
 class Api::V1::MealsController < ApplicationController
 
+	before_action :authorized, only: [:my_meals]
+
 	def create
 		 @meal = Meal.new(meal_params)
 		 @user = User.find(meal_params[:user_id])
@@ -14,6 +16,10 @@ class Api::V1::MealsController < ApplicationController
     meals = Meal.all
     render json: meals
   end
+
+  def my_meals
+  	render json: current_user.meals
+  end 
 
 	private 
 
