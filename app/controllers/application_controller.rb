@@ -43,7 +43,8 @@ class ApplicationController < ActionController::API
   end
 
   def home
+    render json: {}
   end 
-  
+
   
 end
