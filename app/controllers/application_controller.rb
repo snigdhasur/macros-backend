@@ -41,5 +41,9 @@ class ApplicationController < ActionController::API
   def authorized
     redirect_to '/api/v1/login' unless logged_in?
   end
+
+  def home
+  end 
+  
   
 end
